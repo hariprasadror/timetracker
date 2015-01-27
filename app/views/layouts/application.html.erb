@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Tracktime</title>
+  <meta name="viewport" content ="width=device-width", initial-scale = 1">
+
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<div id="container">
+   <header>
+     <nav>
+        <ul>
+            <li><%= controller_name == 'companies' ? raw(' class="active"') : '' %>><%= link_to 'companies', companies_path %></li>
+               <li><%= controller_name == 'projects' ? raw(' class="active"') : '' %>><%= link_to 'projects'
+
+           <li><%= controller_name == 'works' ? raw(' class="active"') : '' %>></li> <li><%= link_to 'works',works_path %></li> 
+
+
+        <%= display_nav_item('companies', 'companies', companies_path) %>
+        <%= display_nav_item('projects', 'projects', projects_path) %>
+        <%= display_nav_item('works', 'works', works_path) %>
+
+
+
+
+
+
+            </ul>
+     </nav>
+   </header>
+   <section id "main">
+       <article>
+       <%= yield %>
+       </article>
+       <aside>
+        <%= yield :aside %>
+       </aside>
+     </section>
+     <footer>
+         <p>Time tracker is a <en> sample company</en>Apps</p>
+
+     </footer>  
+</body>
+</html>
